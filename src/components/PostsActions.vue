@@ -5,20 +5,13 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, ref, onMounted, computed, watch, inject } from 'vue'
-
-import { fetchPostsList } from '../api/posts'
-import { fetchUsersList } from '../api/users'
+import { defineComponent, inject } from 'vue'
+import { PostsPageProvides } from '../views/PostsPage.vue'
 
 export default defineComponent({
     name: 'PostsActions',
     setup(props) {
-        const searchQuery = ref('')
-        const updateSearchQuery: any = inject('updateSearchQuery')
-        
-        watch(searchQuery, (value: string) => {
-            updateSearchQuery(value)
-        })
+        const searchQuery = inject(PostsPageProvides.searchQuery)
 
         return {
             searchQuery

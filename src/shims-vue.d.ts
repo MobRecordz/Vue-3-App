@@ -4,6 +4,10 @@ declare module '*.vue' {
   export default component
 }
 
+declare interface IHttpParams {
+  [key: string]: any
+}
+
 declare interface IPost {
   userId: number,
   id: number,
@@ -40,4 +44,12 @@ declare interface IUserPost {
   title: string,
   body: string,
   user?: IUser
+}
+
+declare enum PostsPageProvides {
+  filteredPostsList = 'filteredPostsList',
+  currentPage = 'currentPage',
+  isLoading = 'isLoading',
+  searchQuery = 'searchQuery',
+  updateSearchQuery = 'updateSearchQuery'
 }
